@@ -1,0 +1,140 @@
+
+.header
+  margin-bottom: 100px
+
+.header__container
+  display: flex
+  justify-content: space-between
+  align-items: center
+  height: 100px
+
+.header__nav
+  display: flex
+  align-items: center
+  justify-content: space-between
+  list-style: none
+  height: 30px
+  width: 100%
+  max-width: 626px
+  .header__item
+    .header__link
+      font-weight: 500
+      font-size: 14px
+      line-height: 17px
+      text-decoration: none
+      color: var(--black-color)
+
+
+.header__auth
+  display: flex
+  align-items: center
+  justify-content: center
+  gap: 17px
+
+.auth-registration
+  background: var(--red-gradient)
+
+.auth-login
+  background: var(--blue-gradient)
+
+.burger 
+  position: relative
+  border: none
+  display: none
+  padding: 0
+  width: 33px
+  height: 30px
+  color: var(--text-black-color)
+  background-color: transparent
+  cursor: pointer
+  z-index: 4 
+  right: 10px
+
+  &::before,
+  &::after 
+    content: ""
+    position: absolute
+    left: 0
+    width: 100%
+    height: 3px
+    background-color: currentColor
+    transition: transform 0.3s ease-in-out, top 0.3s ease-in-out
+
+  &::before
+    top: 0
+
+  &::after 
+    top: calc(100% - 2px)
+  
+
+  &__line
+    position: absolute
+    left: 0
+    top: 50%
+    width: 100%
+    height: 3px
+    background-color: currentColor
+    transform: translateY(-50%)
+    transition: transform 0.3s ease-in-out
+
+  &--active 
+    &::before 
+      top: 50%
+      transform: rotate(45deg)
+      transition: transform 0.3s ease-in-out, top 0.3s ease-in-out
+
+    &::after 
+      top: 50%
+      transform: rotate(-45deg)
+      transition: transform 0.3s ease-in-out, top 0.3s ease-in-out
+
+    .burger__line 
+      transform: scale(0)
+      transition: transform 0.3s ease-in-out
+  
+@media (max-width: 1024px) 
+  .burger
+    display: block
+  .header__nav
+    z-index: 3
+    position: absolute
+    background: white
+    width: 100vw
+    height: 100vh
+    top: -100vh
+    left: 0
+    display: flex
+    gap: 20px
+    flex-direction: column
+    margin: 0
+    padding: 0
+  .header__nav .header__item 
+    &:not(:last-child)
+      border-right: none
+  .header__nav .header__item:not(:last-child)
+    padding-right: 0
+    padding-left: 0
+  .header__nav .header__item:not(:first-child)
+    padding-right: 0
+    padding-left: 0
+  .header__auth
+    position: absolute
+    top: -100vh
+    left: -100vw
+  .header__nav .header__item .header__link
+    font-size: 25px
+
+
+.menu--active
+  top: 0
+  left: 0
+  justify-content: center
+  text-align: center
+  max-width: none
+
+.btns--active
+  display: flex
+  flex-direction: column
+  top: 100px
+  left: calc( 50% -  (164px/2))
+  z-index: 6
